@@ -46,6 +46,6 @@ public class ContainerToken extends Token {
 
     @Override
     public String toString() {
-        return String.format("{ %s ->  [%s] }", getType().name(), tokens.stream().map(Token::toString).collect(Collectors.joining(", ")));
+        return String.format("{ %s -> %s }", getType().name(), tokens.stream().map(Token::toString).collect(Collectors.joining(", ")));
     }
 }

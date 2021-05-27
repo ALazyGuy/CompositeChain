@@ -1,5 +1,5 @@
 package com.ltp.composite.model;
 
 public enum TokenType {
-    TEXT, SENTENCE, LEXEME, SYMBOL
+    TEXT, PARAGRAPH, SENTENCE, LEXEME, WORD, EXPRESSION, SYMBOL
 }
