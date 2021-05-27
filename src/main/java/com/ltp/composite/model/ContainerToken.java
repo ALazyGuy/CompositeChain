@@ -1,5 +1,6 @@
 package com.ltp.composite.model;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,6 +24,11 @@ public class ContainerToken extends Token {
 
     public void add(Token token) {
         tokens.add(token);
+    }
+
+    @Override
+    public Iterator<Token> iterator() {
+        return tokens.iterator();
     }
 
     @Override

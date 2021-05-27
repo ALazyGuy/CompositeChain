@@ -2,6 +2,8 @@ package com.ltp.composite.model;
 
 import lombok.Getter;
 
+import java.util.Iterator;
+
 @Getter
 public class SymbolToken extends Token {
 
@@ -25,6 +27,11 @@ public class SymbolToken extends Token {
     @Override
     public void add(Token token) {
         throw new UnsupportedOperationException("There is no operation 'add' in symbol token");
+    }
+
+    @Override
+    public Iterator<Token> iterator() {
+        throw new UnsupportedOperationException("There is no iterator in symbol token");
     }
 
     @Override

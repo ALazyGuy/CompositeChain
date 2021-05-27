@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public abstract class Token{
+public abstract class Token implements Iterable<Token>{
     private TokenType type;
 
     public abstract Token get(int index);
