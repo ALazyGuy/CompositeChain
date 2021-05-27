@@ -3,13 +3,9 @@ package com.ltp.composite.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.List;
-
+@Getter
 @AllArgsConstructor
 public abstract class Token{
-
-    private List<Token> content;
-    @Getter
     private TokenType type;
 
     public abstract Token get(int index);
