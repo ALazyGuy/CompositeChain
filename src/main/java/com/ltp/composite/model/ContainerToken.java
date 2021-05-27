@@ -4,12 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TextToken extends Token {
+public class ContainerToken extends Token {
 
     private List<Token> tokens;
 
-    public TextToken(){
-        super(TokenType.TEXT);
+    public ContainerToken(TokenType type){
+        super(type);
         tokens = new LinkedList<>();
     }
 
@@ -22,7 +22,6 @@ public class TextToken extends Token {
     }
 
     public void add(Token token) {
-        if(token.getType() != TokenType.SENTENCE) return;
         tokens.add(token);
     }
 
@@ -35,12 +34,12 @@ public class TextToken extends Token {
     public boolean equals(Object obj) {
         if(obj == this) return true;
         if(obj == null || obj.getClass() != this.getClass()) return false;
-        TextToken current = (TextToken)obj;
-        return current.hashCode() == hashCode();
+        ContainerToken current = (ContainerToken)obj;
+        return current.hashCode() == hashCode() && getType() == current.getType();
     }
 
     @Override
     public String toString() {
-        return String.format("TEXT [%s]", tokens.stream().map(Token::toString).collect(Collectors.joining(", ")));
+        return String.format("{ %s ->  [%s] }", getType().name(), tokens.stream().map(Token::toString).collect(Collectors.joining(", ")));
     }
 }
