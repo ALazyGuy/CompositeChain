@@ -51,7 +51,7 @@ public class ContainerToken extends Token {
         String result = "";
         switch (getType()){
             case PARAGRAPH:
-                result = String.format("\t%s\n", tokens.stream().map(Token::toString).collect(Collectors.joining(" ")));
+                result = String.format("\t%s", tokens.stream().map(Token::toString).collect(Collectors.joining(" ")));
                 break;
             case SENTENCE:
             case LEXEME:
@@ -63,6 +63,8 @@ public class ContainerToken extends Token {
                         tokens.get(tokens.size() - 1).toString());
                 break;
             case TEXT:
+                result = tokens.stream().map(Token::toString).collect(Collectors.joining("\n"));
+                break;
             case WORD:
                 result = tokens.stream().map(Token::toString).collect(Collectors.joining());
                 break;
