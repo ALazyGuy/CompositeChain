@@ -1,5 +1,7 @@
 package com.ltp.composite.model;
 
+import com.ltp.composite.parser.SymbolParser;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -46,6 +48,25 @@ public class ContainerToken extends Token {
 
     @Override
     public String toString() {
-        return String.format("{ %s -> %s }", getType().name(), tokens.stream().map(Token::toString).collect(Collectors.joining(", ")));
+        String result = "";
+        switch (getType()){
+            case PARAGRAPH:
+                result = String.format("\t%s\n", tokens.stream().map(Token::toString).collect(Collectors.joining(" ")));
+                break;
+            case SENTENCE:
+            case LEXEME:
+                result = String.format("%s%s",
+                        tokens.stream()
+                                .limit(tokens.size() - 1)
+                                .map(Token::toString)
+                                .collect(Collectors.joining(" ")),
+                        tokens.get(tokens.size() - 1).toString());
+                break;
+            case TEXT:
+            case WORD:
+                result = tokens.stream().map(Token::toString).collect(Collectors.joining());
+                break;
+        }
+        return result;
     }
 }

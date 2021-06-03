@@ -49,6 +49,6 @@ public class SymbolToken extends Token {
 
     @Override
     public String toString() {
-        return String.format("{ SYMBOL: '%s' }", Character.toString(value));
+        return Character.toString(value);
     }
 }
