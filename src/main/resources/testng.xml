@@ -6,4 +6,9 @@
             <class name="test.com.ltp.composite.parser.TextParserTest"></class>
         </classes>
     </test>
+    <test name="Services">
+        <classes>
+            <class name="test.com.ltp.composite.service.impl.SearchServiceImplTest"></class>
+        </classes>
+    </test>
 </suite>
