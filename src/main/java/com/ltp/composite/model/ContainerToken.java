@@ -1,6 +1,6 @@
 package com.ltp.composite.model;
 
-import com.ltp.composite.parser.SymbolParser;
+import lombok.Getter;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -9,7 +9,10 @@ import java.util.stream.Collectors;
 
 public class ContainerToken extends Token {
 
+    @Getter
     private List<Token> tokens;
+    @Getter
+    private int length = 0;
 
     public ContainerToken(TokenType type){
         super(type);
@@ -25,6 +28,9 @@ public class ContainerToken extends Token {
     }
 
     public void add(Token token) {
+        if(token.getType() != TokenType.SYMBOL){
+            length = Math.max(length, ((ContainerToken)token).getLength());
+        }else length++;
         tokens.add(token);
     }
 
