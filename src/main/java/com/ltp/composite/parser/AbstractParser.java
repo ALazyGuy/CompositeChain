@@ -4,6 +4,8 @@ import com.ltp.composite.model.Token;
 
 public abstract class AbstractParser {
 
+    protected final String SENTENCE_DELIMITER = "(?<=[!?.])\\s";
+
     protected AbstractParser next;
 
     public AbstractParser(AbstractParser abstractParser){

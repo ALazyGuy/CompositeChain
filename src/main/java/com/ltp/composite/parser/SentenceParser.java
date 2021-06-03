@@ -13,7 +13,7 @@ public class SentenceParser extends AbstractParser{
 
     @Override
     public void parse(Token token, String content) {
-        String[] sentences = content.split("(?<=[!?.])\\s");
+        String[] sentences = content.split(SENTENCE_DELIMITER);
         for(String sentence : sentences){
             Token sentence1 = new ContainerToken(TokenType.SENTENCE);
             next.parse(sentence1, sentence.replaceAll("[!.?]", ""));
