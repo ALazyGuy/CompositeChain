@@ -17,7 +17,7 @@ public class TextParserTest {
     }
 
     @Test
-    public void parse(){
+    public void parseTest(){
         Token text = TextParser.parse(expected);
         String actual = text.toString();
         AssertJUnit.assertEquals(expected, actual);
