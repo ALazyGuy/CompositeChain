@@ -42,7 +42,7 @@ public class ContainerToken extends Token {
     }
 
     public void calculateLength(){
-        length = tokens.stream().mapToInt(token -> ((ContainerToken)token).getLength()).max().getAsInt();
+        length = tokens.stream().mapToInt(token -> ((ContainerToken)token).getLength()).max().orElse(0);
     }
 
     @Override
