@@ -1,8 +1,8 @@
 package com.ltp.composite.parser;
 
-import com.ltp.composite.model.ContainerToken;
-import com.ltp.composite.model.Token;
-import com.ltp.composite.model.TokenType;
+import com.ltp.composite.model.ContainerPart;
+import com.ltp.composite.model.Part;
+import com.ltp.composite.model.PartType;
 
 public class WordParser extends AbstractParser{
 
@@ -11,12 +11,12 @@ public class WordParser extends AbstractParser{
     }
 
     @Override
-    public void parse(Token token, String content) {
+    public void parse(Part part, String content) {
         String[] words = content.split("\\s");
         for(String word : words){
-            Token token1 = new ContainerToken(Character.isLetter(word.charAt(0)) ? TokenType.WORD : TokenType.EXPRESSION);
-            next.parse(token1, word);
-            token.add(token1);
+            Part part1 = new ContainerPart(Character.isLetter(word.charAt(0)) ? PartType.WORD : PartType.EXPRESSION);
+            next.parse(part1, word);
+            part.add(part1);
         }
     }
 }

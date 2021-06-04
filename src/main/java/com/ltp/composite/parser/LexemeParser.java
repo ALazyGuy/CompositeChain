@@ -1,11 +1,9 @@
 package com.ltp.composite.parser;
 
-import com.ltp.composite.model.ContainerToken;
-import com.ltp.composite.model.SymbolToken;
-import com.ltp.composite.model.Token;
-import com.ltp.composite.model.TokenType;
-
-import java.util.Arrays;
+import com.ltp.composite.model.ContainerPart;
+import com.ltp.composite.model.SymbolPart;
+import com.ltp.composite.model.Part;
+import com.ltp.composite.model.PartType;
 
 public class LexemeParser extends AbstractParser{
 
@@ -14,15 +12,15 @@ public class LexemeParser extends AbstractParser{
     }
 
     @Override
-    public void parse(Token token, String content) {
+    public void parse(Part part, String content) {
         String[] lexemes = content.split(" ");
         for(String lexeme : lexemes){
-            Token lexeme1 = new ContainerToken(TokenType.LEXEME);
+            Part lexeme1 = new ContainerPart(PartType.LEXEME);
             next.parse(lexeme1, lexeme.replaceAll(",", ""));
             if(lexeme.endsWith(",")){
-                lexeme1.add(new SymbolToken(','));
+                lexeme1.add(new SymbolPart(','));
             }
-            token.add(lexeme1);
+            part.add(lexeme1);
         }
     }
 }

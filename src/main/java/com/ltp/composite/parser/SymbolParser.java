@@ -1,7 +1,7 @@
 package com.ltp.composite.parser;
 
-import com.ltp.composite.model.SymbolToken;
-import com.ltp.composite.model.Token;
+import com.ltp.composite.model.SymbolPart;
+import com.ltp.composite.model.Part;
 
 public class SymbolParser extends AbstractParser {
 
@@ -10,10 +10,10 @@ public class SymbolParser extends AbstractParser {
     }
 
     @Override
-    public void parse(Token token, String content) {
+    public void parse(Part part, String content) {
         char[] symbols = content.toCharArray();
         for(char c : symbols){
-            token.add(new SymbolToken(c));
+            part.add(new SymbolPart(c));
         }
     }
 }

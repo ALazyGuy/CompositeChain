@@ -1,7 +1,7 @@
 package test.com.ltp.composite.service.impl;
 
-import com.ltp.composite.model.ContainerToken;
-import com.ltp.composite.model.Token;
+import com.ltp.composite.model.ContainerPart;
+import com.ltp.composite.model.Part;
 import com.ltp.composite.parser.TextParser;
 import com.ltp.composite.service.SortingService;
 import com.ltp.composite.service.impl.SortingServiceImpl;
@@ -21,8 +21,8 @@ public class SortingServiceImplTest {
 
     @Test
     public void sortBySentencesTest(){
-        Token text = TextParser.parse("Test. Test test test.\n\tTest test.");
-        sortingService.sortBySentences((ContainerToken)text);
+        Part text = TextParser.parse("Test. Test test test.\n\tTest test.");
+        sortingService.sortBySentences((ContainerPart)text);
         String expected = "\tTest test.\n\tTest. Test test test.";
         String actual = text.toString();
         AssertJUnit.assertEquals(expected, actual);

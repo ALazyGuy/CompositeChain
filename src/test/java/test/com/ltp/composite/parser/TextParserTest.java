@@ -1,6 +1,6 @@
 package test.com.ltp.composite.parser;
 
-import com.ltp.composite.model.Token;
+import com.ltp.composite.model.Part;
 import com.ltp.composite.parser.TextParser;
 import org.testng.AssertJUnit;
 import org.testng.annotations.AfterClass;
@@ -18,7 +18,7 @@ public class TextParserTest {
 
     @Test
     public void parseTest(){
-        Token text = TextParser.parse(expected);
+        Part text = TextParser.parse(expected);
         String actual = text.toString();
         AssertJUnit.assertEquals(expected, actual);
     }

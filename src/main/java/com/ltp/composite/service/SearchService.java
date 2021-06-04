@@ -1,9 +1,9 @@
 package com.ltp.composite.service;
 
-import com.ltp.composite.model.ContainerToken;
-import com.ltp.composite.model.Token;
+import com.ltp.composite.model.ContainerPart;
+import com.ltp.composite.model.Part;
 
 public interface SearchService {
-    Token withLongestWord(ContainerToken text);
-    long count(String word, ContainerToken text);
+    Part withLongestWord(ContainerPart text);
+    long count(String word, ContainerPart text);
 }

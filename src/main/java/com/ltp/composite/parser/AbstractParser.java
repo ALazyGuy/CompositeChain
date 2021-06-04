@@ -1,6 +1,6 @@
 package com.ltp.composite.parser;
 
-import com.ltp.composite.model.Token;
+import com.ltp.composite.model.Part;
 
 public abstract class AbstractParser {
 
@@ -12,5 +12,5 @@ public abstract class AbstractParser {
         this.next = abstractParser;
     }
 
-    public abstract void parse(Token token, String content);
+    public abstract void parse(Part part, String content);
 }

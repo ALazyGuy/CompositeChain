@@ -1,16 +1,16 @@
 package com.ltp.composite.comparator;
 
-import com.ltp.composite.model.ContainerToken;
-import com.ltp.composite.model.Token;
+import com.ltp.composite.model.ContainerPart;
+import com.ltp.composite.model.Part;
 
 import java.util.Comparator;
 
-public class ParagraphComparator implements Comparator<Token> {
+public class ParagraphComparator implements Comparator<Part> {
 
     @Override
-    public int compare(Token o1, Token o2) {
-        int size1 = ((ContainerToken)o1).getTokens().size();
-        int size2 = ((ContainerToken)o2).getTokens().size();
+    public int compare(Part o1, Part o2) {
+        int size1 = ((ContainerPart)o1).getParts().size();
+        int size2 = ((ContainerPart)o2).getParts().size();
         return size1 < size2 ? -1 : size1 == size2 ? 0 : 1;
     }
 }

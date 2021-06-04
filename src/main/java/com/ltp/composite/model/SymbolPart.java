@@ -5,32 +5,32 @@ import lombok.Getter;
 import java.util.Iterator;
 
 @Getter
-public class SymbolToken extends Token {
+public class SymbolPart extends Part {
 
     private char value;
 
-    public SymbolToken(char value){
-        super(TokenType.SYMBOL);
+    public SymbolPart(char value){
+        super(PartType.SYMBOL);
         this.value = value;
     }
 
     @Override
-    public Token get(int index) {
+    public Part get(int index) {
         throw new UnsupportedOperationException("There is no operation 'get' in symbol token");
     }
 
     @Override
-    public void remove(Token token) {
+    public void remove(Part part) {
         throw new UnsupportedOperationException("There is no operation 'remove' in symbol token");
     }
 
     @Override
-    public void add(Token token) {
+    public void add(Part part) {
         throw new UnsupportedOperationException("There is no operation 'add' in symbol token");
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<Part> iterator() {
         throw new UnsupportedOperationException("There is no iterator in symbol token");
     }
 
@@ -43,7 +43,7 @@ public class SymbolToken extends Token {
     public boolean equals(Object obj) {
         if(obj == this) return true;
         if(obj == null || obj.getClass() != getClass()) return false;
-        SymbolToken current = (SymbolToken)obj;
+        SymbolPart current = (SymbolPart)obj;
         return current.getValue() == value;
     }
 
