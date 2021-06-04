@@ -9,6 +9,7 @@
     <test name="Services">
         <classes>
             <class name="test.com.ltp.composite.service.impl.SearchServiceImplTest"></class>
+            <class name="test.com.ltp.composite.service.impl.SortingServiceImplTest"></class>
         </classes>
     </test>
 </suite>
