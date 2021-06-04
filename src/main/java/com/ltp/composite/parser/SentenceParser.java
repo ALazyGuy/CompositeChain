@@ -16,7 +16,7 @@ public class SentenceParser extends AbstractParser{
         String[] sentences = content.split(SENTENCE_DELIMITER);
         for(String sentence : sentences){
             Token sentence1 = new ContainerToken(TokenType.SENTENCE);
-            next.parse(sentence1, sentence.replaceAll("[!.?]", ""));
+            next.parse(sentence1, sentence.replaceAll("[!.?]$", ""));
             sentence1.add(new SymbolToken(sentence.charAt(sentence.length() - 1)));
             token.add(sentence1);
         }
