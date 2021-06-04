@@ -10,6 +10,7 @@
         <classes>
             <class name="test.com.ltp.composite.service.impl.SearchServiceImplTest"></class>
             <class name="test.com.ltp.composite.service.impl.SortingServiceImplTest"></class>
+            <class name="test.com.ltp.composite.service.impl.FilteringServiceTest"></class>
         </classes>
     </test>
 </suite>
