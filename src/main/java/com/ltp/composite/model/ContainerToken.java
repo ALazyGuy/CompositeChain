@@ -25,13 +25,24 @@ public class ContainerToken extends Token {
 
     public void remove(Token token) {
         tokens.remove(token);
+        if(token.getType() == TokenType.SYMBOL){
+            length--;
+        }else{
+            calculateLength();
+        }
     }
 
     public void add(Token token) {
-        if(token.getType() != TokenType.SYMBOL){
-            length = Math.max(length, ((ContainerToken)token).getLength());
-        }else length++;
         tokens.add(token);
+        if(token.getType() == TokenType.SYMBOL) {
+            length++;
+        }else{
+            calculateLength();
+        }
+    }
+
+    public void calculateLength(){
+        length = tokens.stream().mapToInt(token -> ((ContainerToken)token).getLength()).max().getAsInt();
     }
 
     @Override
